@@ -9,6 +9,7 @@ const portfolioData = {
   profile: {
     github: "https://github.com/Akilesh-10",
     linkedin: "https://www.linkedin.com/in/akilesh-m-b138642b8/",
+    email: "", // Add the public email address you want visitors to use.
     lastUpdated: "October 2026"
   },
   vlsiProjects: [
@@ -81,3 +82,5 @@ const portfolioData = {
     {date:"October 2026 · Starting point",title:"Portfolio foundation published",description:"Website structure and project roadmap are in place. Project statuses are being checked against implementation evidence before any are marked completed.",link:""}
   ]
 };
+// Expose the same portfolio data object to the home page and project detail template.
+window.portfolioData = portfolioData;

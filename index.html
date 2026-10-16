@@ -6,7 +6,7 @@
   <meta name="description" content="Akilesh's engineering portfolio: Digital VLSI and ASIC design, Embedded Systems and IoT, PCB design, and engineering freelance services.">
   <meta name="theme-color" content="#080d18">
   <title>Akilesh M | Digital VLSI, Embedded Systems & Engineering</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,10 @@
       <span class="logo">A<span>.</span></span>
       <span>AKILESH M<small>ENGINEERING PORTFOLIO</small></span>
     </a>
-    <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="header-controls">
+      <button id="themeToggle" class="utility-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">☀ Light mode</button>
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
     <nav id="nav">
       <a href="#vlsi">Digital VLSI</a>
       <a href="#embedded">Embedded & IoT</a>
@@ -56,6 +59,27 @@
       <article><span class="number">01</span><div><strong>Digital VLSI & ASIC</strong><small>Primary career priority</small></div></article>
       <article><span class="number">02</span><div><strong>Embedded Systems & IoT</strong><small>Secondary career priority</small></div></article>
       <article><span class="number">03</span><div><strong>Engineering Freelance Work</strong><small>Scope-based technical services</small></div></article>
+    </section>
+
+    <section class="project-explorer wrap" id="projectExplorer" aria-labelledby="explorerTitle">
+      <div class="explorer-heading">
+        <div><p class="eyebrow">PROJECT EXPLORER</p><h2 id="explorerTitle">Find work by project, domain or status.</h2></div>
+        <p>Search across Digital VLSI, Embedded Systems & IoT, and PCB projects. Open any card for its dedicated project page.</p>
+      </div>
+      <div class="filter-controls">
+        <label class="search-wrap"><span class="visually-hidden">Search projects</span><span aria-hidden="true">⌕</span><input id="projectSearch" type="search" placeholder="Search projects or technologies…" autocomplete="off"></label>
+        <label><span class="visually-hidden">Filter by domain</span><select id="categoryFilter"><option value="all">All domains</option><option value="vlsi">Digital VLSI & ASIC</option><option value="embedded">Embedded & IoT</option><option value="pcb">PCB & Electronics</option></select></label>
+        <label><span class="visually-hidden">Filter by status</span><select id="statusFilter"><option value="all">All statuses</option><option>Planned</option><option>In Progress</option><option>Tested</option><option>Completed</option></select></label>
+        <button id="clearFilters" class="btn secondary filter-clear" type="button">Clear filters</button>
+      </div>
+      <div class="progress-summary" aria-label="Project status summary">
+        <article><span>Total projects</span><strong id="countTotal">0</strong></article>
+        <article><span>Planned</span><strong id="countPlanned">0</strong></article>
+        <article><span>In progress</span><strong id="countProgress">0</strong></article>
+        <article><span>Tested</span><strong id="countTested">0</strong></article>
+        <article><span>Completed</span><strong id="countCompleted">0</strong></article>
+      </div>
+      <p class="filter-result" id="filterResult" aria-live="polite">Showing all projects.</p>
     </section>
 
     <section class="section wrap" id="about">
@@ -128,10 +152,11 @@
 
     <section class="contact wrap" id="contact">
       <div><p class="eyebrow">LET’S CONNECT</p><h2>Design. Build. Verify.<br><em>Improve.</em></h2><p>I’m interested in Digital VLSI and ASIC opportunities first, Embedded Systems and IoT opportunities as well, and suitable engineering freelance collaborations. Please include the role or project scope when reaching out.</p></div>
-      <div class="contact-actions"><a class="btn primary" href="https://www.linkedin.com/in/akilesh-m-b138642b8/" target="_blank" rel="noreferrer">Connect / Enquire on LinkedIn ↗</a><a class="btn secondary" href="https://github.com/Akilesh-10" target="_blank" rel="noreferrer">Explore GitHub ↗</a><p class="small-note">Résumé and email contact can be added when you choose the public files/details.</p></div>
+      <div class="contact-actions"><a class="btn primary email-link" data-email-link href="mailto:?subject=Engineering%20project%20enquiry">✉ Email me directly</a><a class="btn secondary" href="https://www.linkedin.com/in/akilesh-m-b138642b8/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a><a class="btn secondary" href="https://github.com/Akilesh-10" target="_blank" rel="noreferrer">Explore GitHub ↗</a><p class="small-note" id="emailNote">Set your public email in data.js to activate direct email contact.</p></div>
     </section>
   </main>
   <footer class="footer wrap"><a class="brand" href="#home"><span class="logo">A<span>.</span></span><span>AKILESH M<small>ENGINEERING PORTFOLIO</small></span></a><p>Free GitHub Pages · Built to evolve with the work · <span id="lastUpdated">October 2026</span></p><a href="#home">Back to top ↑</a></footer>
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">↑</button>
   <script src="data.js"></script><script src="script.js"></script>
 </body>
 </html>
