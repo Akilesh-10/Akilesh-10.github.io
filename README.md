@@ -1,42 +1,54 @@
-# Engineering Portfolio — starter website
+# Akilesh M — Engineering Portfolio
 
-A responsive static portfolio with Digital VLSI as the primary career focus and Embedded Systems / IoT as the secondary focus.
+Responsive, static portfolio designed to support two goals:
+1. **Primary career priority:** Digital VLSI and ASIC design roles.
+2. **Secondary career priority:** Embedded Systems and IoT roles.
+3. **Freelance work:** scoped engineering services across Digital VLSI/RTL, verification support, embedded firmware, IoT, PCB design, FPGA and related technical tasks where capability and scope fit.
+
+The site is built with plain HTML, CSS and JavaScript. No paid service, build system, framework, or backend is required.
 
 ## Files
-- `index.html`: page structure and profile content
-- `styles.css`: responsive layout and design
-- `data.js`: edit this file to update project cards, profile links and the changelog
-- `script.js`: renders the projects and updates
+- `index.html` — website structure
+- `styles.css` — design, responsive layout and link styling
+- `data.js` — project cards, services, education/experience, skills, training and changelog content
+- `script.js` — renders content from `data.js`
+- `assets/favicon.svg` — site icon
 
-## Preview
-Open `index.html` in a browser. No build step is required.
+## Preview locally
+Open `index.html` in a browser. For local testing, a simple static server is optional; the site has no build step.
 
-## Personalise before publishing
-1. Edit `data.js` and replace the placeholder GitHub and LinkedIn URLs with your actual profile URLs.
-2. Set `profile.resume` to a public résumé path if you want to include it, e.g. `assets/resume.pdf`. Put the file in an `assets` folder first.
-3. Add an email only if you want it public.
-4. Review the skill list in `index.html`; remove anything you cannot yet explain confidently.
-5. Keep statuses accurate: `Planned`, `In Progress`, `Tested`, or `Completed`.
+## Update a project after a LinkedIn post or implementation milestone
+1. Open `data.js`.
+2. Find the project in `vlsiProjects`, `embeddedProjects`, or `pcbProjects`.
+3. Update `status`, `summary`, `technologies` and `nextStep` to match the real state.
+4. Add `evidenceLink` only when you have a shareable repository, report, waveform, screenshot or other evidence.
+5. Add `postLink` only after the LinkedIn post exists.
+6. Add an entry to `updates` and update `profile.lastUpdated`.
+7. Commit the change to the `main` branch. GitHub Pages will redeploy.
 
-## Update after a LinkedIn post
-Find the matching project in `data.js`. Update its status and summary based on real work, then add:
-- `evidenceLink`: repository, waveform, report or other evidence
-- `postLink`: the LinkedIn post URL
-- `nextStep`: the next actual task
+Supported statuses: `Planned`, `In Progress`, `Tested`, `Completed`. Use `Completed` only when implementation is actually finished and the claim is defensible.
 
-Add a new object to the `updates` list to record the milestone. For example (use only if true):
+Example changelog entry (use only if true):
 ```js
-{date:"2026-11-02",title:"First SPI simulation",description:"Ran the first simulation with documented test cases and recorded a follow-up issue.",link:"https://github.com/YOUR-USERNAME/YOUR-REPO"}
+{date:"2026-11-02",title:"First SPI RTL simulation",description:"Ran simulation with documented test cases and captured a waveform for review.",link:"https://github.com/Akilesh-10/your-repository"}
 ```
-Update `profile.lastUpdated` too.
 
-## Publish free with GitHub Pages
-1. Open your GitHub account: https://github.com/Akilesh-10.
-2. Create a public repository named `Akilesh-10.github.io`.
-3. Upload the contents of this folder (the files themselves, not an outer folder).
-4. In repository Settings → Pages, choose deploy from a branch, `main`, folder `/ (root)`, and save.
-5. After deployment, the site address is `https://YOUR-USERNAME.github.io`.
-6. Each future edit committed to the repository will update the published website.
+## Publish/update on GitHub Pages
+Repository: `https://github.com/Akilesh-10/Akilesh-10.github.io`
+Website: `https://akilesh-10.github.io/`
 
-## Privacy and accuracy
-Do not publish private contact details, access tokens, Wi-Fi credentials, confidential employer/project information or proprietary code without permission. Planned projects are clearly roadmap items, not completed work.
+To update the published site:
+1. Open the repository.
+2. Choose **Add file → Upload files** or edit files directly.
+3. Upload/replace the files from this package at the repository root: `index.html`, `styles.css`, `data.js`, `script.js`, and the `assets` folder.
+4. Commit directly to `main`.
+5. Wait for the Pages deployment to finish, then refresh the live site.
+
+Do not upload the outer ZIP file instead of its contents.
+
+## Accuracy and privacy
+- The project list is a roadmap. Verify each project's implementation status before changing it to Completed.
+- A course certificate proves course completion, not mastery of every tool or completion of an end-to-end ASIC flow.
+- Service cards describe categories of work to discuss, not an unconditional promise to accept every task. Confirm scope, access to tools/hardware, timeline and deliverables before agreeing.
+- Never publish employer/client confidential data, proprietary code, passwords, access tokens, Wi-Fi credentials, or licensed tool content without permission.
+- Add a résumé PDF only when you have a version intended for public sharing.
