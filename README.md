@@ -26,7 +26,7 @@ Any project screenshot/image that you add later can also sit directly beside the
 ## Four interface features
 
 1. **Dark/light mode:** switch in the header. Preference is saved in the visitor's browser.
-2. **Email me directly:** mail buttons are present. To activate them, set `profile.email` in `data.js` to the public email address you choose to display, then republish. It is blank by default so the site does not invent or expose an address.
+2. **Email me directly:** a working `mailto:` link is configured to the email address provided on your résumé. The header and contact-section buttons open a pre-addressed email draft; change `profile.email` in `data.js` if you prefer a different public address.
 3. **Project search and filters:** search by project name/technology and filter by domain or status.
 4. **Project progress summary and Back to Top:** counts show project statuses, and a floating arrow returns visitors to the page top.
 
@@ -70,15 +70,15 @@ Use only these statuses consistently:
 
 Do not claim results, test coverage, expertise or project completion without evidence. A training certificate proves course completion; it is not on its own proof of advanced tool mastery.
 
-## Configure the public email address
+## Change the public email address (optional)
 
-Open `data.js` and find:
+The package is configured with the email address supplied on your résumé. To change it, open `data.js` and update the `profile.email` value:
 
 ```js
-email: "", // Add the public email address you want visitors to use.
+email: "akilesh11789@gmail.com",
 ```
 
-Replace the empty string with the email address you want public, for example `email: "your-real-address@example.com"`. Do not use the example address; enter your own address only when you are comfortable publishing it. The email button will then create a pre-addressed mailto draft.
+The email buttons open the visitor's default email app with a prepared subject. They do not send a message automatically; the visitor reviews and sends it from their own email application.
 
 ## Publish to GitHub Pages
 

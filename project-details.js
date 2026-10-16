@@ -122,7 +122,7 @@
   if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     const contact = document.createElement("a");
     contact.className = "btn secondary";
-    contact.href = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent("Engineering project enquiry")}`;
+    contact.href = `mailto:${email}?subject=${encodeURIComponent("Engineering project enquiry")}`;
     contact.textContent = "Email me directly";
     const row = page.querySelector(".detail-link-row");
     if (row) row.prepend(contact);

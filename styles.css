@@ -57,3 +57,17 @@
 @media(max-width:900px){.filter-controls{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.filter-clear{justify-self:start}.explorer-heading{align-items:flex-start;flex-direction:column;gap:8px}.detail-grid{grid-template-columns:1fr}.detail-aside{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.header-controls{gap:6px}.utility-toggle{font-size:10px;padding:8px 9px}.project-explorer{padding:17px}.filter-controls{grid-template-columns:1fr}.search-wrap{grid-column:auto}.progress-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.progress-summary article:first-child{grid-column:1/-1}.detail-header{align-items:flex-start}.detail-main{padding-top:30px}.detail-grid{grid-template-columns:1fr}.detail-aside{grid-template-columns:1fr}.detail-evidence-grid{grid-template-columns:1fr}.detail-hero h1{letter-spacing:-1px}.detail-link-row .btn{width:100%}}
 .video-frame{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:var(--bg)}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.detail-link-row .btn{font-size:10px}
+
+
+/* Visibility and interaction polish for the four requested portfolio features. */
+nav .nav-email{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--teal);border-radius:9px;padding:9px 12px;color:var(--teal);font-weight:800;white-space:nowrap}
+nav .nav-email:hover{background:#58e3d11a;color:var(--teal)}
+.project[data-project-card]{cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.project[data-project-card]:hover,.project[data-project-card]:focus-visible{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 12px 35px #0002;outline:none}
+.project[data-project-card]:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.back-to-top{opacity:1;transform:none;pointer-events:auto;display:flex;align-items:center;justify-content:center;gap:5px;min-width:62px;width:auto;padding:0 12px;font-size:17px}
+.back-to-top span{font-size:11px;letter-spacing:.2px}
+.back-to-top.visible{opacity:1;transform:none;pointer-events:auto}
+:root[data-theme="light"] nav .nav-email{color:#087f78;border-color:#087f78}
+:root[data-theme="light"] .project[data-project-card]:hover,:root[data-theme="light"] .project[data-project-card]:focus-visible{box-shadow:0 12px 30px #10243d10}
+@media(max-width:680px){nav .nav-email{display:flex;width:max-content}.back-to-top{right:12px;bottom:12px;min-width:58px;min-height:44px}}

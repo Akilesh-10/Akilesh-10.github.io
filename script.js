@@ -70,7 +70,7 @@
   const email = String(data.profile.email || "").trim();
   document.querySelectorAll("[data-email-link]").forEach((link) => {
     if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      link.href = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent("Engineering project enquiry")}`;
+      link.href = `mailto:${email}?subject=${encodeURIComponent("Engineering project enquiry")}`;
       link.title = `Email ${email}`;
     } else {
       link.href = "#contact";
@@ -110,6 +110,24 @@
   const clearFilters = document.getElementById("clearFilters");
   const cards = Array.from(document.querySelectorAll("[data-project-card]"));
   const filterResult = document.getElementById("filterResult");
+  // Make the full project card clickable while allowing its GitHub/LinkedIn links to work normally.
+  cards.forEach((card) => {
+    const detailLink = card.querySelector(".project-detail-link");
+    if (!detailLink) return;
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "link");
+    card.setAttribute("aria-label", `Open ${card.querySelector("h3")?.textContent || "project"} details`);
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a, button, input, select, textarea")) return;
+      window.location.href = detailLink.href;
+    });
+    card.addEventListener("keydown", (event) => {
+      if ((event.key === "Enter" || event.key === " ") && event.target === card) {
+        event.preventDefault();
+        window.location.href = detailLink.href;
+      }
+    });
+  });
   const lower = (value) => String(value || "").trim().toLowerCase();
   const initialCounts = { total: cards.length, planned: 0, progress: 0, tested: 0, completed: 0 };
   cards.forEach((card) => {
@@ -135,7 +153,7 @@
     });
     if (filterResult) filterResult.textContent = `Showing ${visible} of ${cards.length} projects${query ? ` for “${searchInput.value.trim()}”` : ""}.`;
   }
-  [searchInput, categorySelect, statusSelect].forEach((control) => control && control.addEventListener("input", filterProjects));
+  [searchInput, categorySelect, statusSelect].forEach((control) => { if (control) { control.addEventListener("input", filterProjects); control.addEventListener("change", filterProjects); } });
   if (clearFilters) clearFilters.addEventListener("click", () => {
     if (searchInput) searchInput.value = "";
     if (categorySelect) categorySelect.value = "all";
@@ -161,7 +179,8 @@
   // Floating Back to Top control.
   const backToTop = document.getElementById("backToTop");
   function updateBackToTop() {
-    if (backToTop) backToTop.classList.toggle("visible", window.scrollY > 500);
+    // Keep the shortcut visible so visitors can discover it immediately.
+    if (backToTop) backToTop.classList.add("visible");
   }
   window.addEventListener("scroll", updateBackToTop, { passive: true });
   updateBackToTop();

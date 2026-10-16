@@ -9,7 +9,7 @@ const portfolioData = {
   profile: {
     github: "https://github.com/Akilesh-10",
     linkedin: "https://www.linkedin.com/in/akilesh-m-b138642b8/",
-    email: "", // Add the public email address you want visitors to use.
+    email: "akilesh11789@gmail.com", // Public contact email from the résumé.
     lastUpdated: "October 2026"
   },
   vlsiProjects: [
